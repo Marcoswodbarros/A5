@@ -17,19 +17,27 @@ const App = () => {
     setSelectedContact(null); // Reseta a seleção após a atualização
   };
 
+  const handleDelete = (cpf) => {
+    const confirmDelete = window.confirm("Tem certeza que deseja excluir este contato?");
+    if (confirmDelete) {
+      setContatos(contatos.filter((c) => c.cpf !== cpf));
+    }
+  };
+
   return (
     <div className="App">
       <Cadastro onCadastro={handleCadastro} />
       {selectedContact && (
         <Alteracao contato={selectedContact} onUpdate={handleUpdate} />
       )}
-      {/* Botões para selecionar contato para edição (apenas para fins de exemplo) */}
+      {/* Lista de contatos com opções de editar e excluir */}
       <h3>Contatos</h3>
       <ul>
         {contatos.map((contato) => (
           <li key={contato.cpf}>
-            {contato.nome} - {contato.email}
+            {contato.nome} - {contato.email} 
             <button onClick={() => setSelectedContact(contato)}>Editar</button>
+            <button onClick={() => handleDelete(contato.cpf)}>Excluir</button>
           </li>
         ))}
       </ul>
