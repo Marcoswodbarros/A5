@@ -1,5 +1,6 @@
 // src/Cadastro.js
 import React, { useState } from 'react';
+import "./Cadastro.css"
 
 const Cadastro = ({ onCadastro }) => {
     const [formData, setFormData] = useState({
@@ -42,10 +43,10 @@ const Cadastro = ({ onCadastro }) => {
     };
 
     return (
-        <div>
+        <div id='cadastro-container'>
             <h2>Cadastro</h2>
             <form onSubmit={handleSubmit}>
-                <div>
+                <section>
                     <label>Nome:</label>
                     <input
                         type="text"
@@ -54,8 +55,9 @@ const Cadastro = ({ onCadastro }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div>
+                </section>
+
+                <section>
                     <label>CPF:</label>
                     <input
                         type="text"
@@ -64,8 +66,9 @@ const Cadastro = ({ onCadastro }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div>
+                </section>
+
+                <section>
                     <label>Email:</label>
                     <input
                         type="email"
@@ -74,8 +77,9 @@ const Cadastro = ({ onCadastro }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div>
+                </section>
+
+                <section>
                     <label>Telefone:</label>
                     <input
                         type="text"
@@ -84,15 +88,17 @@ const Cadastro = ({ onCadastro }) => {
                         onChange={handleChange}
                         required
                     />
-                </div>
-                <div>
+                </section>
+
+                <section>
                     <label>Foto:</label>
                     <input
                         type="file"
                         accept="image/*"
                         onChange={handleFileChange}
                     />
-                </div>
+                </section>
+
                 <button type="submit">Cadastrar</button>
             </form>
             {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ width: '100px', marginTop: '10px' }} />}
