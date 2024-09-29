@@ -2,14 +2,17 @@
 import React, { useState } from 'react';
 import Cadastro from './components/Cadastro';
 import Alteracao from './components/Alteracao';
+import ListaContatos from './components/ListaContatos';
 import './App.css'; // Opcional, caso queira usar estilos
 
 const App = () => {
   const [contatos, setContatos] = useState([]);
   const [selectedContact, setSelectedContact] = useState(null);
+  const [isCadastroVisible, setIsCadastroVisible] = useState(false); // Controla a visibilidade do formulário
 
   const handleCadastro = (novoContato) => {
     setContatos([...contatos, novoContato]);
+    setIsCadastroVisible(false); // Oculta o formulário após o cadastro
   };
 
   const handleUpdate = (contatoAtualizado) => {
@@ -26,22 +29,26 @@ const App = () => {
 
   return (
     <div className="App">
-      <Cadastro onCadastro={handleCadastro} />
+      <h1>Gerenciamento de Contatos</h1>
+      {/* Lista de contatos e link para exibir o formulário de cadastro */}
+      <ListaContatos
+        contatos={contatos}
+        onEdit={setSelectedContact}
+        onDelete={handleDelete}
+        onShowCadastro={() => setIsCadastroVisible(true)} // Controla o clique no link para exibir o cadastro
+      />
+
+      {/* Formulário de cadastro controlado por visibilidade */}
+      {isCadastroVisible && (
+        <div>
+          <Cadastro onCadastro={handleCadastro} />
+          <button onClick={() => setIsCadastroVisible(false)}>Fechar Cadastro</button>
+        </div>
+      )}
+
       {selectedContact && (
         <Alteracao contato={selectedContact} onUpdate={handleUpdate} />
       )}
-      {/* Lista de contatos com opções de editar e excluir */}
-      <h3>Contatos</h3>
-      <ul>
-        {contatos.map((contato) => (
-          <li key={contato.cpf}>
-            {contato.nome} - {contato.email} 
-            {contato.foto && <img src={contato.foto} alt={contato.nome} style={{ width: '50px', marginLeft: '10px' }} />}
-            <button onClick={() => setSelectedContact(contato)}>Editar</button>
-            <button onClick={() => handleDelete(contato.cpf)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
