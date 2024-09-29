@@ -3,7 +3,30 @@
 }
 
 ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
+    row-gap: 2rem;
+}
+
+li {
+    align-items: start;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    row-gap: 1rem;
+}
+
+li:nth-child(1) {
+    margin-top: 2rem;
+}
+
+.listaContatos__btn--container {
+    column-gap: 1rem;
+    display: flex;
 }
 
 .listaContatos-btn {

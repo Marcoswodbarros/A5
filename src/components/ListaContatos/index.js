@@ -12,16 +12,21 @@ const ListaContatos = ({ contatos, onEdit, onDelete, onShowCadastro }) => {
                 <ul>
                     {contatos.map((contato) => (
                         <li key={contato.cpf}>
-                            {contato.nome} - {contato.email}
                             {contato.foto && (
                                 <img
                                     src={contato.foto}
                                     alt={contato.nome}
-                                    style={{ width: '50px', marginLeft: '10px' }}
+                                    style={{ borderRadius: '50%', height: '50px', marginLeft: '10px', width: '50px' }}
                                 />
                             )}
-                            <button onClick={() => onEdit(contato)}>Editar</button>
-                            <button onClick={() => onDelete(contato.cpf)}>Excluir</button>
+
+                            {contato.nome} /
+                            {contato.email}
+
+                            <div className='listaContatos__btn--container'>
+                                <button onClick={() => onEdit(contato)}>Editar</button>
+                                <button onClick={() => onDelete(contato.cpf)}>Excluir</button>
+                            </div>
                         </li>
                     ))}
                 </ul>

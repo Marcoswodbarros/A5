@@ -40,6 +40,7 @@ const Alteracao = ({ contato, onUpdate }) => {
                         required
                     />
                 </div>
+
                 <div>
                     <label>CPF:</label>
                     <input
@@ -50,6 +51,7 @@ const Alteracao = ({ contato, onUpdate }) => {
                         required
                     />
                 </div>
+                
                 <div>
                     <label>Email:</label>
                     <input
@@ -60,6 +62,7 @@ const Alteracao = ({ contato, onUpdate }) => {
                         required
                     />
                 </div>
+                
                 <div>
                     <label>Telefone:</label>
                     <input
@@ -70,6 +73,7 @@ const Alteracao = ({ contato, onUpdate }) => {
                         required
                     />
                 </div>
+                
                 <div>
                     <label>Foto:</label>
                     <input
@@ -78,9 +82,10 @@ const Alteracao = ({ contato, onUpdate }) => {
                         onChange={handleFileChange}
                     />
                 </div>
+                
                 <button type="submit">Atualizar</button>
             </form>
-            {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ width: '100px', marginTop: '10px' }} />}
+            {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ height: '50px', marginTop: '10px', width: '50px'}} />}
         </div>
     );
 };
