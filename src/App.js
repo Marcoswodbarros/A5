@@ -1,23 +1,22 @@
-// src/App.js
 import React, { useState } from 'react';
 import Cadastro from './components/Cadastro';
 import Alteracao from './components/Alteracao';
 import ListaContatos from './components/ListaContatos';
-import './App.css'; // Opcional, caso queira usar estilos
+import './App.css';
 
 const App = () => {
     const [contatos, setContatos] = useState([]);
     const [selectedContact, setSelectedContact] = useState(null);
-    const [isCadastroVisible, setIsCadastroVisible] = useState(false); // Controla a visibilidade do formulário
+    const [isCadastroVisible, setIsCadastroVisible] = useState(false);
 
     const handleCadastro = (novoContato) => {
         setContatos([...contatos, novoContato]);
-        setIsCadastroVisible(false); // Oculta o formulário após o cadastro
+        setIsCadastroVisible(false);
     };
 
     const handleUpdate = (contatoAtualizado) => {
         setContatos(contatos.map((c) => (c.cpf === contatoAtualizado.cpf ? contatoAtualizado : c)));
-        setSelectedContact(null); // Reseta a seleção após a atualização
+        setSelectedContact(null);
     };
 
     const handleDelete = (cpf) => {
@@ -30,16 +29,15 @@ const App = () => {
     return (
         <div className="App">
             <h1>Gerenciamento de Contatos</h1>
+
             <div className='app-container'>
-                {/* Lista de contatos e link para exibir o formulário de cadastro */}
                 <ListaContatos
                     contatos={contatos}
                     onEdit={setSelectedContact}
                     onDelete={handleDelete}
-                    onShowCadastro={() => setIsCadastroVisible(true)} // Controla o clique no link para exibir o cadastro
+                    onShowCadastro={() => setIsCadastroVisible(true)}
                 />
 
-                {/* Formulário de cadastro controlado por visibilidade */}
                 {isCadastroVisible && (
                     <div>
                         <Cadastro onCadastro={handleCadastro} />

@@ -15,7 +15,7 @@ const Alteracao = ({ contato, onUpdate }) => {
         const file = e.target.files[0];
         setFormData({
             ...formData,
-            foto: URL.createObjectURL(file) // Armazena a URL da nova imagem
+            foto: URL.createObjectURL(file)
         });
     };
 

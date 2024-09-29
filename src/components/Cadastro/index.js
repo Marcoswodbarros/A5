@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./Cadastro.css"
+import Button from '../Button';
 
 const Cadastro = ({ onCadastro }) => {
     const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ const Cadastro = ({ onCadastro }) => {
         cpf: '',
         email: '',
         telefone: '',
-        foto: null // Adiciona o estado para a foto
+        foto: null
     });
 
     const handleChange = (e) => {
@@ -22,22 +23,21 @@ const Cadastro = ({ onCadastro }) => {
         const file = e.target.files[0];
         setFormData({
             ...formData,
-            foto: URL.createObjectURL(file) // Armazena a URL da imagem
+            foto: URL.createObjectURL(file)
         });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onCadastro(formData); // Chama a função passada como prop
+        onCadastro(formData);
         alert('Cadastro realizado com sucesso!');
 
-        // Limpa o formulário após o cadastro
         setFormData({
             nome: '',
             cpf: '',
             email: '',
             telefone: '',
-            foto: null // Reseta a foto
+            foto: null
         });
     };
 
@@ -97,8 +97,8 @@ const Cadastro = ({ onCadastro }) => {
                         onChange={handleFileChange}
                     />
                 </section>
-
-                <button type="submit">Cadastrar</button>
+                
+                <Button type='submit'>Cadastrar</Button>
             </form>
             {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ width: '100px', marginTop: '10px' }} />}
         </div>
