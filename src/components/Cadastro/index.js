@@ -1,4 +1,3 @@
-// src/Cadastro.js
 import React, { useState } from 'react';
 import "./Cadastro.css"
 

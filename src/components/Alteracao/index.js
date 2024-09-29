@@ -1,4 +1,3 @@
-// src/Alteracao.js
 import React, { useState } from 'react';
 
 const Alteracao = ({ contato, onUpdate }) => {
