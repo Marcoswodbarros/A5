@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
+import Cadastro from './components/Cadastro';
+import Alteracao from './components/Alteracao';
+import './App.css'; // Opcional, caso queira usar estilos
 
-function App() {
+const App = () => {
+  const [contatos, setContatos] = useState([]);
+  const [selectedContact, setSelectedContact] = useState(null);
+
+  const handleCadastro = (novoContato) => {
+    setContatos([...contatos, novoContato]);
+  };
+
+  const handleUpdate = (contatoAtualizado) => {
+    setContatos(contatos.map((c) => (c.cpf === contatoAtualizado.cpf ? contatoAtualizado : c)));
+    setSelectedContact(null); // Reseta a seleção após a atualização
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cadastro onCadastro={handleCadastro} />
+      {selectedContact && (
+        <Alteracao contato={selectedContact} onUpdate={handleUpdate} />
+      )}
+      {/* Botões para selecionar contato para edição (apenas para fins de exemplo) */}
+      <h3>Contatos</h3>
+      <ul>
+        {contatos.map((contato) => (
+          <li key={contato.cpf}>
+            {contato.nome} - {contato.email}
+            <button onClick={() => setSelectedContact(contato)}>Editar</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
