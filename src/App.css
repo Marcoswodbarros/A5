@@ -1,14 +1,26 @@
 /* src/App.css */
-.App {
-  text-align: center;
-  margin: 20px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: auto;
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  margin: 2rem 0 1rem 0;
+}
+
+.app-container {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  margin: 0 auto;
+  padding: 25px 30px;
+  width: 330px;
 }
 
 div {
