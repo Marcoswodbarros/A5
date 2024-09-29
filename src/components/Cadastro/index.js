@@ -6,7 +6,8 @@ const Cadastro = ({ onCadastro }) => {
         nome: '',
         cpf: '',
         email: '',
-        telefone: ''
+        telefone: '',
+        foto: null // Adiciona o estado para a foto
     });
 
     const handleChange = (e) => {
@@ -14,6 +15,14 @@ const Cadastro = ({ onCadastro }) => {
         setFormData({
             ...formData,
             [name]: value
+        });
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({
+            ...formData,
+            foto: URL.createObjectURL(file) // Armazena a URL da imagem
         });
     };
 
@@ -27,7 +36,8 @@ const Cadastro = ({ onCadastro }) => {
             nome: '',
             cpf: '',
             email: '',
-            telefone: ''
+            telefone: '',
+            foto: null // Reseta a foto
         });
     };
 
@@ -75,8 +85,17 @@ const Cadastro = ({ onCadastro }) => {
                         required
                     />
                 </div>
+                <div>
+                    <label>Foto:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                </div>
                 <button type="submit">Cadastrar</button>
             </form>
+            {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ width: '100px', marginTop: '10px' }} />}
         </div>
     );
 };

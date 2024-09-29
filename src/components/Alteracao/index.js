@@ -12,19 +12,18 @@ const Alteracao = ({ contato, onUpdate }) => {
         });
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({
+            ...formData,
+            foto: URL.createObjectURL(file) // Armazena a URL da nova imagem
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aqui você pode implementar a lógica para atualizar os dados em uma API ou outro sistema
         onUpdate(formData);
         alert('Dados atualizados com sucesso!');
-
-        // Limpa o formulário após a atualização
-        setFormData({
-            nome: '',
-            cpf: '',
-            email: '',
-            telefone: ''
-        });
     };
 
     return (
@@ -71,8 +70,17 @@ const Alteracao = ({ contato, onUpdate }) => {
                         required
                     />
                 </div>
+                <div>
+                    <label>Foto:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                </div>
                 <button type="submit">Atualizar</button>
             </form>
+            {formData.foto && <img src={formData.foto} alt="Pré-visualização" style={{ width: '100px', marginTop: '10px' }} />}
         </div>
     );
 };

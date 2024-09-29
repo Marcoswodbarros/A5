@@ -36,6 +36,7 @@ const App = () => {
         {contatos.map((contato) => (
           <li key={contato.cpf}>
             {contato.nome} - {contato.email} 
+            {contato.foto && <img src={contato.foto} alt={contato.nome} style={{ width: '50px', marginLeft: '10px' }} />}
             <button onClick={() => setSelectedContact(contato)}>Editar</button>
             <button onClick={() => handleDelete(contato.cpf)}>Excluir</button>
           </li>
