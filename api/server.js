@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-let contacts = []; // Aqui você pode usar um banco de dados real.
+let contacts = [];
 
 app.get("/contacts", (req, res) => {
     res.json(contacts);

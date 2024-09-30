@@ -26,7 +26,6 @@ const ListaContatos = ({ contacts, onEdit, onDelete, onDeletePhoto }) => {
                         </section>
                      )}
 
-
                      <section>
                         <label>Nome:</label> {contact.nome}
                      </section>
