@@ -43,12 +43,12 @@ Users should be able to:
 ### To use the App you'll have to perform the following steps:
 
 - Clone the repository: git clone (https://github.com/Marcoswodbarros/A5)
-- Access the project folder: cd a5-challenge
+- Access the project folder: cd folder-name
 - Access the backend folder: cd api
 - Install the backend dependencies: npm install express cors body-parser
 - Start the backend: node server.js
-- Access the project folder: cd a5-challenge
-- Start the frontend (in a different terminal): npm start
+- Access the project folder: cd folder-name
+- Start the frontend (in a different terminal): npm start.
 
 
 
