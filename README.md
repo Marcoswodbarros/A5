@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# A5 - Front-end Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the A5 Front-end Challenge.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Tips](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `npm run build`
+- See if there are registered users;
+- Register, Change and Delete users;
+- Add or remove the profile picture;
+- Don't lose saved data after refreshing the page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![pagina-inicial](https://github.com/user-attachments/assets/d12441c6-8fe8-452c-80bf-0c0fcda3a5e8)
 
-### `npm run eject`
+![pagina-de-cadastro](https://github.com/user-attachments/assets/0f9772c6-829f-41c6-89dc-1b24278671fd)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![contato-cadastrado](https://github.com/user-attachments/assets/144ad287-d8c8-40a6-a91d-56576d856dc0)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tips
 
-## Learn More
+### To use the App you'll have to perform the following steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone the repository: git clone (https://github.com/Marcoswodbarros/A5)
+- Access the project folder: cd a5-challenge
+- Access the backend folder: cd api
+- Install the backend dependencies: npm install express cors body-parser
+- Start the backend: node server.js
+- Access the project folder: cd a5-challenge
+- Start the frontend (in a different terminal): npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## My process
 
-### Analyzing the Bundle Size
+### Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- React
+- JavaScript
+- CSS
+- Fetch API
+- REST API
+- Node
+- Express
+- JSON
+- Git
+  
 
-### Making a Progressive Web App
+### What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+While I was building this project, I could work again with some nice tecnologies, like: React, JS, Node and Express. One of them (Express) I was using for the first time.
+It was a challenging project for which I needed to do a lot of research and understand the integration of the backend with the frontend.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Continued development
 
-### Deployment
+The idea is to keep building new projects, to improve my React and Backend knowledge and also help others people showing them different kind of ways to code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+
+- GitHub - (https://github.com/Marcoswodbarros)
+- Linkedin - (https://www.linkedin.com/in/marcoswodbarros/)
