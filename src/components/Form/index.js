@@ -1,63 +1,79 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button";
+import Button from '../Button'
 import './Form.css'
 
 const FormContato = ({ contact, onSubmit, onCancel }) => {
-   const [name, setName] = useState("");
+   const [nome, setNome] = useState("");
    const [cpf, setCpf] = useState("");
    const [email, setEmail] = useState("");
-   const [phone, setPhone] = useState("");
+   const [telefone, setTelefone] = useState("");
+   const [foto, setFoto] = useState(null);
 
    useEffect(() => {
       if (contact) {
-         setName(contact.name);
+         setNome(contact.nome);
          setCpf(contact.cpf);
          setEmail(contact.email);
-         setPhone(contact.phone);
+         setTelefone(contact.telefone);
+         setFoto(contact.foto);
       } else {
-         setName("");
+         setNome("");
          setCpf("");
          setEmail("");
-         setPhone("");
+         setTelefone("");
+         setFoto(null);
       }
    }, [contact]);
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      if (typeof onSubmit === "function") {
-         onSubmit({ name, cpf, email, phone });
+      const newContact = { nome, cpf, email, telefone, foto };
+      onSubmit(newContact);
+      resetForm();
+   };
+
+
+   const resetForm = () => {
+      setNome("");
+      setCpf("");
+      setEmail("");
+      setTelefone("");
+      setFoto(null);
+      onCancel();
+   };
+
+   const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+         setFoto(URL.createObjectURL(file));
       }
    };
 
    return (
       <form onSubmit={handleSubmit}>
          <section>
-            <label htmlFor="name">Nome:</label>
+            <label>Nome:</label>
             <input
-               id="name"
                type="text"
-               value={name}
-               onChange={(e) => setName(e.target.value)}
+               value={nome}
+               onChange={(e) => setNome(e.target.value)}
                required
             />
          </section>
 
          <section>
-            <label htmlFor="cpf">CPF:</label>
+            <label>CPF:</label>
             <input
-               id="cpf"
                type="text"
                value={cpf}
                onChange={(e) => setCpf(e.target.value)}
                required
-               disabled={!!contact}
             />
          </section>
 
          <section>
-            <label htmlFor="email">Email:</label>
+            <label>Email:</label>
             <input
-               id="email"
                type="email"
                value={email}
                onChange={(e) => setEmail(e.target.value)}
@@ -66,19 +82,24 @@ const FormContato = ({ contact, onSubmit, onCancel }) => {
          </section>
 
          <section>
-            <label htmlFor="phone">Telefone:</label>
+            <label>Telefone:</label>
             <input
-               id="phone"
-               type="tel"
-               value={phone}
-               onChange={(e) => setPhone(e.target.value)}
+               type="text"
+               value={telefone}
+               onChange={(e) => setTelefone(e.target.value)}
                required
             />
          </section>
 
+         <section>
+            <label>Foto:</label>
+            <input type="file" onChange={handleFileChange} accept="image/*" />
+            {foto && <img src={foto} alt="Preview" width="100" />}
+         </section>
+
          <div className="form__btn--container">
-            <Button type="submit" name={contact ? "Atualizar" : "Cadastrar"} />
-            <Button type="button" onClick={onCancel} name="Cancelar" />
+            <Button type="submit" name='Salvar' />
+            <Button type="button" onClick={resetForm} name='Cancelar' />
          </div>
       </form>
    );
