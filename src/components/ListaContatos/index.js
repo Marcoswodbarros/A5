@@ -1,43 +1,28 @@
-import React from 'react';
-import Button from '../Button';
+import React from "react";
+import Button from "../Button";
 import './ListaContatos.css'
 
-const ListaContatos = ({ contatos, onEdit, onDelete, onShowCadastro }) => {
-    return (
-        <div className='listaContatos-container'>
-            <h2>Lista de Contatos</h2>
+const ListaContatos = ({ contacts = [], onEdit, onDelete }) => {
+   if (!contacts || contacts.length === 0) {
+      return <p>No momento, você não possui usuários cadastrados.</p>;
+   }
 
-            {contatos.length === 0 ? (
-                <p>No momento, você não possui usuários cadastrados.</p>
-            ) : (
-                <ul>
-                    {contatos.map((contato) => (
-                        <li key={contato.cpf}>
-                            {contato.foto && (
-                                <img
-                                    src={contato.foto}
-                                    alt={contato.nome}
-                                    style={{ borderRadius: '50%', height: '50px', marginLeft: '10px', width: '50px' }}
-                                />
-                            )}
+   return (
+      <div>
+         <ul>
+            {contacts.map((contact) => (
+               <li key={contact.cpf}>
+                  {contact.name} - {contact.email}
 
-                            {contato.nome} /
-                            {contato.email}
-
-                            <div className='listaContatos__btn--container'>
-                                <Button onClick={() => onEdit(contato)}>Editar</Button>
-                                <Button onClick={() => onDelete(contato.cpf)}>Excluir</Button>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            )}
-
-            <Button onClick={() => onShowCadastro(null)}>
-                Clique aqui para cadastrar um novo usuário
-            </Button>
-        </div>
-    );
+                  <div className="listaContatos__btn--container">
+                     <Button onClick={() => onEdit(contact)} name='Editar' />
+                     <Button onClick={() => onDelete(contact.cpf)} name='Excluir' />
+                  </div>
+               </li>
+            ))}
+         </ul>
+      </div>
+   );
 };
 
 export default ListaContatos;

@@ -9,14 +9,12 @@
 }
 
 h1 {
-  color: white;
   margin: 2rem 0 1rem 0;
 }
 
 .app-container {
   background-color: white;
   border-radius: 10px;
-  color: black;
   margin: 0 auto;
   padding: 25px 30px;
   width: 330px;

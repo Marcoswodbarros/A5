@@ -1,56 +1,68 @@
-import React, { useState } from 'react';
-import Cadastro from './components/Cadastro';
-import Alteracao from './components/Alteracao';
-import ListaContatos from './components/ListaContatos';
-import './App.css';
+import React, { useState } from "react";
+import FormContato from "./components/Form";
+import ListaContatos from "./components/ListaContatos";
+import Button from "./components/Button";
+import './App.css'
 
-const App = () => {
-    const [contatos, setContatos] = useState([]);
-    const [selectedContact, setSelectedContact] = useState(null);
-    const [isCadastroVisible, setIsCadastroVisible] = useState(false);
+function App() {
+   const [contacts, setContacts] = useState([]);
+   const [formVisible, setFormVisible] = useState(false);
+   const [editingContact, setEditingContact] = useState(null);
 
-    const handleCadastro = (novoContato) => {
-        setContatos([...contatos, novoContato]);
-        setIsCadastroVisible(false);
-    };
+   const addContact = (newContact) => {
+      setContacts([...contacts, newContact]);
+      setFormVisible(false);
+   };
 
-    const handleUpdate = (contatoAtualizado) => {
-        setContatos(contatos.map((c) => (c.cpf === contatoAtualizado.cpf ? contatoAtualizado : c)));
-        setSelectedContact(null);
-    };
+   const updateContact = (updatedContact) => {
+      setContacts(
+         contacts.map((contact) =>
+            contact.cpf === updatedContact.cpf ? updatedContact : contact
+         )
+      );
+      setFormVisible(false);
+   };
 
-    const handleDelete = (cpf) => {
-        const confirmDelete = window.confirm("Tem certeza que deseja excluir este contato?");
-        if (confirmDelete) {
-            setContatos(contatos.filter((c) => c.cpf !== cpf));
-        }
-    };
+   const deleteContact = (cpf) => {
+      const confirmed = window.confirm("Você realmente deseja excluir este contato?");
+      if (confirmed) {
+         setContacts(contacts.filter((contact) => contact.cpf !== cpf));
+      }
+   };
 
-    return (
-        <div className="App">
-            <h1>Gerenciamento de Contatos</h1>
+   const showForm = () => {
+      setEditingContact(null);
+      setFormVisible(true);
+   };
 
-            <div className='app-container'>
-                <ListaContatos
-                    contatos={contatos}
-                    onEdit={setSelectedContact}
-                    onDelete={handleDelete}
-                    onShowCadastro={() => setIsCadastroVisible(true)}
-                />
+   return (
+      <div className="App">
+         <h1>Gerenciamento de Contatos</h1>
 
-                {isCadastroVisible && (
-                    <div>
-                        <Cadastro onCadastro={handleCadastro} />
-                        <button onClick={() => setIsCadastroVisible(false)}>Fechar Cadastro</button>
-                    </div>
-                )}
+         <div className="app-container">
+            {formVisible ? (
+               <FormContato
+                  contact={editingContact}
+                  onSubmit={editingContact ? updateContact : addContact}
+                  onCancel={() => setFormVisible(false)}
+               />
+            ) : (
+               <div>
+                  <ListaContatos
+                     contacts={contacts}
+                     onEdit={(contact) => {
+                        setEditingContact(contact);
+                        setFormVisible(true);
+                     }}
+                     onDelete={deleteContact}
+                  />
 
-                {selectedContact && (
-                    <Alteracao contato={selectedContact} onUpdate={handleUpdate} />
-                )}
-            </div>
-        </div>
-    );
-};
+                  <Button onClick={showForm} name="Cadastrar Novo Usuário" />
+               </div>
+            )}
+         </div>
+      </div>
+   );
+}
 
 export default App;
