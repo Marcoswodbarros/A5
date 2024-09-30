@@ -75,7 +75,7 @@ It was a challenging project for which I needed to do a lot of research and unde
 
 ### Continued development
 
-The idea is to keep building new projects, to improve my React and Backend knowledge and also help others people showing them different kind of ways to code.
+The idea is to be hired by A5 Solutions, improve my React and Backend knowledge and also help others people showing them different kind of ways to code.
 
 
 
