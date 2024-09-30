@@ -37,6 +37,7 @@ function App() {
 
    return (
       <div className="App">
+         <img src="/images/logo.png" alt="Logo da A5" className="a5-logo"/>
          <h1>Gerenciamento de Contatos</h1>
 
          <div className="app-container">

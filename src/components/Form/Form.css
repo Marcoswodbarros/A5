@@ -1,7 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
 section {
     align-items: start;
     display: flex;
     flex-direction: column;
+}
+
+section:nth-child(5) input {
+    border: none;
 }
 
 input {

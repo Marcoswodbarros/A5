@@ -50,58 +50,60 @@ const FormContato = ({ contact, onSubmit, onCancel }) => {
    };
 
    return (
-      <form onSubmit={handleSubmit}>
-         <section>
-            <label>Nome:</label>
-            <input
-               type="text"
-               value={nome}
-               onChange={(e) => setNome(e.target.value)}
-               required
-            />
-         </section>
+      <div id="form-container">
+         <form onSubmit={handleSubmit}>
+            <section>
+               <label>Nome:</label>
+               <input
+                  type="text"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  required
+               />
+            </section>
 
-         <section>
-            <label>CPF:</label>
-            <input
-               type="text"
-               value={cpf}
-               onChange={(e) => setCpf(e.target.value)}
-               required
-            />
-         </section>
+            <section>
+               <label>CPF:</label>
+               <input
+                  type="text"
+                  value={cpf}
+                  onChange={(e) => setCpf(e.target.value)}
+                  required
+               />
+            </section>
 
-         <section>
-            <label>Email:</label>
-            <input
-               type="email"
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-               required
-            />
-         </section>
+            <section>
+               <label>Email:</label>
+               <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+               />
+            </section>
 
-         <section>
-            <label>Telefone:</label>
-            <input
-               type="text"
-               value={telefone}
-               onChange={(e) => setTelefone(e.target.value)}
-               required
-            />
-         </section>
+            <section>
+               <label>Telefone:</label>
+               <input
+                  type="text"
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
+                  required
+               />
+            </section>
 
-         <section>
-            <label>Foto:</label>
-            <input type="file" onChange={handleFileChange} accept="image/*" />
-            {foto && <img src={foto} alt="Preview" width="100" />}
-         </section>
+            <section>
+               <label>Foto:</label>
+               <input type="file" onChange={handleFileChange} accept="image/*" />
+               {foto && <img src={foto} alt="Preview" width="100" />}
+            </section>
 
-         <div className="form__btn--container">
-            <Button type="submit" name='Salvar' />
-            <Button type="button" onClick={resetForm} name='Cancelar' />
-         </div>
-      </form>
+            <div className="form__btn--container">
+               <Button type="submit" name='Salvar' />
+               <Button type="button" onClick={resetForm} name='Cancelar' />
+            </div>
+         </form>
+      </div>
    );
 };
 
