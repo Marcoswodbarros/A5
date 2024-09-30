@@ -30,6 +30,14 @@ function App() {
       }
    };
 
+   const deletePhoto = (cpf) => {
+      setContacts(
+         contacts.map((contact) =>
+            contact.cpf === cpf ? { ...contact, foto: null } : contact
+         )
+      );
+   };
+
    const showForm = () => {
       setEditingContact(null);
       setFormVisible(true);
@@ -37,7 +45,7 @@ function App() {
 
    return (
       <div className="App">
-         <img src="/images/logo.png" alt="Logo da A5" className="a5-logo"/>
+         <img src="/images/logo.png" alt="Logo da A5" className="a5-logo" />
          <h1>Gerenciamento de Contatos</h1>
 
          <div className="app-container">
@@ -56,6 +64,7 @@ function App() {
                         setFormVisible(true);
                      }}
                      onDelete={deleteContact}
+                     onDeletePhoto={deletePhoto}
                   />
 
                   <Button onClick={showForm} name="Cadastrar Novo Usuário" />

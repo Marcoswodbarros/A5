@@ -1,8 +1,8 @@
 import React from "react";
-import Button from '../Button'
-import './ListaContatos.css'
+import Button from '../Button';
+import './ListaContatos.css';
 
-const ListaContatos = ({ contacts, onEdit, onDelete }) => {
+const ListaContatos = ({ contacts, onEdit, onDelete, onDeletePhoto }) => {
    return (
       <div>
          <h2>Lista de Contatos</h2>
@@ -13,8 +13,16 @@ const ListaContatos = ({ contacts, onEdit, onDelete }) => {
                {contacts.map((contact) => (
                   <li key={contact.cpf}>
                      {contact.foto && (
-                        <section>
+                        <section className="foto-container">
                            <img src={contact.foto} alt="Contato" className="listaContatos-img" />
+                           
+                           <button 
+                              className="delete-photo"
+                              onClick={() => onDeletePhoto(contact.cpf)}
+                              aria-label="Excluir foto"
+                           >
+                              &#10005;
+                           </button>
                         </section>
                      )}
 
