@@ -13,10 +13,10 @@ const ListaContatos = ({ contacts, onEdit, onDelete, onDeletePhoto }) => {
                {contacts.map((contact) => (
                   <li key={contact.cpf}>
                      {contact.foto && (
-                        <section className="foto-container">
+                        <section className="photo-container">
                            <img src={contact.foto} alt="Contato" className="listaContatos-img" />
-                           
-                           <button 
+
+                           <button
                               className="delete-photo"
                               onClick={() => onDeletePhoto(contact.cpf)}
                               aria-label="Excluir foto"
@@ -25,6 +25,7 @@ const ListaContatos = ({ contacts, onEdit, onDelete, onDeletePhoto }) => {
                            </button>
                         </section>
                      )}
+
 
                      <section>
                         <label>Nome:</label> {contact.nome}
