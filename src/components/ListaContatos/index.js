@@ -12,6 +12,12 @@ const ListaContatos = ({ contacts, onEdit, onDelete }) => {
             <ul>
                {contacts.map((contact) => (
                   <li key={contact.cpf}>
+                     {contact.foto && (
+                        <section>
+                           <img src={contact.foto} alt="Contato" className="listaContatos-img" />
+                        </section>
+                     )}
+
                      <section>
                         <label>Nome:</label> {contact.nome}
                      </section>
@@ -27,13 +33,6 @@ const ListaContatos = ({ contacts, onEdit, onDelete }) => {
                      <section>
                         <label>Telefone:</label> {contact.telefone}
                      </section>
-
-                     {contact.foto && (
-                        <section>
-                           <label>Foto:</label>
-                           <img src={contact.foto} alt="Contato" width="100" />
-                        </section>
-                     )}
 
                      <div className="listaContatos__btn--container">
                         <Button onClick={() => onEdit(contact)} name='Editar' />

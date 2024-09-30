@@ -95,7 +95,7 @@ const FormContato = ({ contact, onSubmit, onCancel }) => {
             <section>
                <label>Foto:</label>
                <input type="file" onChange={handleFileChange} accept="image/*" />
-               {foto && <img src={foto} alt="Preview" width="100" />}
+               {foto && <img src={foto} alt="Preview" className="form-img" />}
             </section>
 
             <div className="form__btn--container">

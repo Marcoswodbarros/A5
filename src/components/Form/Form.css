@@ -4,6 +4,12 @@ form {
     row-gap: 1rem;
 }
 
+.form-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
 section {
     align-items: start;
     display: flex;
